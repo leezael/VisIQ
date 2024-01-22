@@ -17,7 +17,7 @@
 
 ## Project Overview
 
-Welcome to VisIQ, the collaborative space dedicated to the enhancement of Avyuct's groundbreaking product, Intellidetect. Intellidetect is a cloud-based web application designed for detecting anomalies in medical imaging, including MRI images, CT scans, and X-rays. This project focuses on improving the accuracy of Intellidetect through collaborative efforts, even in the absence of the source code.
+Welcome to VisIQ, the collaborative space dedicated to advancing the capabilities of Avyuct's innovative product, Intellidetect. Intellidetect represents a transformative approach to healthcare diagnostics, harnessing the power of artificial intelligence within a cloud-based Software as a Service (SAAS) platform. Focused on early disease detection, Intellidetect streamlines diagnostic processes through a three-step workflow: dataset creation, model building with customizable deep learning algorithms (including ResNet18, VGG-16, AlexNet, GoogLeNet, MnasNet, and ResNet-50), and anomaly detection and segmentation. This repository serves as a hub for contributors passionate about enhancing the accuracy and efficiency of Intellidetect, even in the absence of its source code. The project's mission is to push the boundaries of AI-driven healthcare innovation, offering a flexible, adaptable, and powerful platform that contributes to significant advancements in diagnostic precision. Join us in shaping the future of healthcare diagnostics and explore the repository for documentation, resources, and guidelines on contributing to this impactful project. Together, we aim to make a positive impact on healthcare diagnostics and further propel Avyuct Intellidetect to new heights.
 
 ## Avyuct Intellidetect
 
