@@ -13,7 +13,6 @@
 - [Repository Structure](#repository-structure)
 - [Getting Started](#getting-started)
 - [Documentation](#documentation)
-- [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
 
@@ -77,10 +76,6 @@ To contribute to the enhancement project, follow the steps outlined in the [Gett
 ## Documentation
 
 For insights into the enhancement project's goals, guidelines, and usage, explore the [documentation](docs/README.md). Together, we aim to push the boundaries of AI-driven healthcare innovation.
-
-## Contributing
-
-Contributions are welcome from individuals passionate about making a positive impact on healthcare diagnostics. Follow the [contribution guidelines](CONTRIBUTING.md) to get started.
 
 ## License
 
