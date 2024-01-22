@@ -63,10 +63,10 @@ Avyuct Intellidetect is a product of Avyuct, and all rights and ownership belong
 
 Explore the repository to find resources and documentation that guide contributors in enhancing the accuracy of Avyuct Intellidetect:
 
+- **README.md:** Introduction and overview of the VisIQ project.
 - **docs:** Detailed documentation for the enhancement project.
 - **tests:** Test cases and testing-related resources.
 - **LICENSE:** MIT License file.
-- **CONTRIBUTING.md:** Guidelines for contributing to the project.
 
 ## Documentation
 
