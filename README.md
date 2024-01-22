@@ -50,12 +50,12 @@ This repository is focused on collaborative efforts to enhance the accuracy of A
 
 The VisIQ project appreciates the contributions of the following individuals:
 
-- [Adnan Chowdhury](https://github.com/adnanchowdhury)
-- [Andrew Soria-Quiroz](https://github.com/andrewsq)
-- [Dedelolia Olungwe](https://github.com/dedelolia)
-- [Delena Bell](https://github.com/delenabell)
-- [Eliza Punnoose](https://github.com/elizapunnoose)
-- [Muge Yalcin](https://github.com/mugeyalcin)
+- [Adnan Chowdhury](https://github.com/clamchowderhead)
+- [Andrew Soria-Quiroz](https://github.com/Aurelius2500)
+- [Dedelolia Olungwe](https://github.com/lolia-olu)
+- [Delena Bell](https://github.com/delbell)
+- [Eliza Punnoose](https://github.com/leezael)
+- [Muge Yalcin](https://github.com/36nw)
 
 Thank you for your valuable contributions to the VisIQ project!
 
