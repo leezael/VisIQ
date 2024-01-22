@@ -11,7 +11,6 @@
 - [Contributors](#contributors)
 - [Ownership and Copyright](#ownership-and-copyright)
 - [Repository Structure](#repository-structure)
-- [Getting Started](#getting-started)
 - [Documentation](#documentation)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
@@ -68,10 +67,6 @@ Explore the repository to find resources and documentation that guide contributo
 - **tests:** Test cases and testing-related resources.
 - **LICENSE:** MIT License file.
 - **CONTRIBUTING.md:** Guidelines for contributing to the project.
-
-## Getting Started
-
-To contribute to the enhancement project, follow the steps outlined in the [Getting Started](docs/getting-started.md) guide. Your contributions play a crucial role in shaping the future of healthcare diagnostics.
 
 ## Documentation
 
