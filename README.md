@@ -10,19 +10,6 @@ This repository, **VisIQ**, is dedicated to collaborative efforts aimed at enhan
 
 Avyuct Intellidetect is a cutting-edge cloud-based web application representing a transformative approach to healthcare diagnostics. It leverages the power of artificial intelligence (AI) within a SAAS platform for advanced image analysis. The application focuses on early disease detection through a three-step workflow: dataset creation, model building with customizable deep learning algorithms, and anomaly detection and segmentation.
 
-### Key Features
-
-- **Classification Algorithms:**
-  - ResNet18
-  - VGG-16 
-  - AlexNet
-  - GoogLeNet
-  - MnasNet
-  - ResNet-50
-
-- **Segmentation Algorithm:**
-  - U-Net
-
 ## Accessing the Product
 
 The product can be accessed through the user interface (UI) or via API. More detailed information and usage guidelines will be provided in the repository when available.
