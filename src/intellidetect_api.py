@@ -2,8 +2,6 @@ import requests
 
 envt_url=""
 
-
-
 def login_api(user, pwd):
     api_parms = {
         "username": user,
