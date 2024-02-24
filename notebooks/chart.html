@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.14.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-07fe44f2bd63e4aa874dfc4600dce5f8"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "label", "legend": {"title": "Labels by color"}, "type": "nominal"}, "column": {"field": "datasplit", "header": {"labelOrient": "bottom", "title": [""]}, "type": "nominal"}, "tooltip": [{"field": "counts", "type": "quantitative"}, {"field": "label", "type": "nominal"}], "x": {"axis": {"format": "", "title": ""}, "field": "label", "type": "nominal"}, "y": {"axis": {"grid": false, "title": "Counts"}, "field": "counts", "type": "quantitative"}}, "height": 200, "width": 200, "$schema": "https://vega.github.io/schema/vega-lite/v5.14.1.json", "datasets": {"data-07fe44f2bd63e4aa874dfc4600dce5f8": [{"datasplit": "test", "label": "PNEUMONIA", "counts": 390}, {"datasplit": "test", "label": "NORMAL", "counts": 234}, {"datasplit": "train", "label": "PNEUMONIA", "counts": 3875}, {"datasplit": "train", "label": "NORMAL", "counts": 1341}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
