@@ -9,7 +9,7 @@ logger.setLevel(logging.INFO)
 
 
 config = configparser.ConfigParser()
-config.readfp(open(r'../config/config.yaml'))
+config.readfp(open(r'../config/configuration.yaml'))
 envt_url = config.get('DEFAULT', 'envt_url')
 username = config.get('DEFAULT', 'username')
 password = config.get('DEFAULT', 'password')

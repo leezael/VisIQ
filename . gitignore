@@ -1,4 +1,4 @@
 __pycache__
 datasets/
 datasets
-config/config.yaml
+config/configuration.yaml
