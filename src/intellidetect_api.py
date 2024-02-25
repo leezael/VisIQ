@@ -31,10 +31,12 @@ def login_api(username, password):
         if response.ok :
             logger.info("Login Success")
             apikey=response.json().get("apikey")
+            # print(apikey)
             return apikey
         elif response.status_code == 401:
             logger.exception("Login Failed : Status Code 401 - Unauthorized: Invalid credentials")
         else:
+            logger.exception(f"Status Code : {response.status_code}")
             logger.exception("Login Failed : Status Code")
     except Exception as e:
         logger.exception("Error : Login Exception - Check login_api call")
@@ -54,6 +56,7 @@ def get_user(access_token):
         elif response.status_code == 401:
             logger.exception("Get User Failed : Status Code 401 - Unauthorized: Invalid Auth token")
         else:
+            logger.exception(f"Status Code : {response.status_code}")
             logger.exception("Get User Failed : Status Code not 200")
     except Exception as e:
         logger.exception("Error : Get User Exception - Check get_user call")
@@ -75,6 +78,7 @@ def get_dash(access_token):
         elif response.status_code == 401:
             logger.exception("Get Dash Failed : Status Code 401 - Unauthorized: Invalid Auth token")
         else:
+            logger.exception(f"Status Code : {response.status_code}")
             logger.exception("Get Dash Failed : Status Code not 200")
     except Exception as e:
         logger.exception("Error : Get Dash Exception - Check get_dash call")
@@ -95,6 +99,7 @@ def get_model(access_token):
         elif response.status_code == 401:
             logger.exception("Get Model Failed : Status Code 401 - Unauthorized: Invalid Auth token")
         else:
+            logger.exception(f"Status Code : {response.status_code}")
             logger.exception("Get Model Failed : Status Code not 200")
     except Exception as e:
         logger.exception("Error : Get Model Exception - Check get_model call")
@@ -115,12 +120,61 @@ def get_dataset(access_token):
         elif response.status_code == 401:
             logger.exception("Get Dataset Failed : Status Code 401 - Unauthorized: Invalid Auth token")
         else:
+            logger.exception(f"Status Code : {response.status_code}")
             logger.exception("Get Dataset Failed : Status Code not 200")
     except Exception as e:
         logger.exception("Error : Get Dataset Exception - Check get_model call")
         logger.exception(e)
     print("Dataset details : ",get_dataset_response) 
     
+#####################################################################################################################################
+# CREATE A DATASET
+#####################################################################################################################################
+def create_dataset(access_token,name,description,type,label):
+    try:
+        endpoint = f"{envt_url}/api/datasets/create"
+        if type == "Classification":
+            api_parms = {
+            "name": name,
+            "description": description,
+            "label": label,
+            "type":type,
+            }
+        else:
+            api_parms = {
+            "name": name,
+            "description": description,
+            "type":type,
+            }
+        headers={"Accept":"application/json","Auth":access_token}
+        response = requests.post(endpoint, json=api_parms,headers=headers)
+        print("22111",response.status_code)
+        if response.ok :
+            print("333")
+            logger.info("Get Dataset Success")
+            get_create_dataset_response=response.json()
+        elif response.status_code == 401:
+            logger.exception("Create Dataset Failed : Status Code 401 - Unauthorized: Invalid Auth token")
+        else:
+            logger.exception(f"Status Code : {response.status_code}")
+            logger.exception("Create Dataset Failed : Status Code not 200")
+    except Exception as e:
+        logger.exception("Error : Create Dataset Exception - Check create_dataset call")
+        logger.exception(e)
+    print("Created Dataset Information : ",get_create_dataset_response) 
+
+#####################################################################################################################################
+# UPLOAD A FILE TO THE DATASET
+#####################################################################################################################################
+def upload_file(access_token,model_id):
+    api_parms = {
+
+    }
+    headers = {}
+    headers = {"Accept": "application/json","Auth": f"Bearer {access_token}"}
+    endpoint = f"{envt_url}/api/datasets/upload/{model_id}"
+    response = requests.post(endpoint, params=api_parms, headers=headers).json()
+    return response
 
 
 def create_version(access_token,model_id):
@@ -134,29 +188,10 @@ def get_version(access_token):
     return response
 
 
-def create_dataset(access_token,name,description,label,type):
-    api_parms = {
-        "name": name,
-        "description": description,
-        "label": label,
-        "type": type,
-    }
-    headers = {}
-    headers = {"Accept": "application/json","Auth": f"Bearer {access_token}"}
-    endpoint = f"{envt_url}/api/datasets/create"
-    response = requests.post(endpoint, params=api_parms, headers=headers).json()
-    return response
 
 
-def upload_file(access_token,model_id):
-    api_parms = {
 
-    }
-    headers = {}
-    headers = {"Accept": "application/json","Auth": f"Bearer {access_token}"}
-    endpoint = f"{envt_url}/api/datasets/upload/{model_id}"
-    response = requests.post(endpoint, params=api_parms, headers=headers).json()
-    return response
+
 
 def create_model(access_token,name,description,datasets,type):
     api_parms = {
@@ -190,6 +225,7 @@ def main():
     get_dash(apikey)
     get_model(apikey)
     get_dataset(apikey)
+    create_dataset(apikey,"Test Dataset 2","This is a test dataset to check the working of the api","Classification","Normal")
   
 if __name__=="__main__": 
     main() 
