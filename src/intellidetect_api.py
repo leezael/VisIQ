@@ -301,7 +301,7 @@ def make_inference(access_token,version_id,filename,request_id):
             make_inference_response=response.json()[0]
             print("make_inference_response:",make_inference_response)
 
-            return(make_inference_response.get("request_id"),make_inference_response.get("file_name"))
+            return(make_inference_response.get("file_name"),make_inference_response.get("label"),make_inference_response.get("confidence"),make_inference_response.get("request_id"),make_inference_response.get("model_id"),make_inference_response.get("model_name"),make_inference_response.get("model_type"))
         elif response.status_code == 401:
             logger.exception("Make Inference Failed : Status Code 401 - Unauthorized: Invalid Auth token")
         else:
@@ -390,14 +390,20 @@ def main():
     make_inference_version_id="190"
     make_inference_file_path="../datasets/BrainTumorClassification/Trial/Try1.jpg"
     make_inference_request_id=make_inference_file_path.split("/",-2)[-1].split(".",-1)[0]
-    make_inference_request_id,make_inference_file_name=make_inference(apikey,make_inference_version_id,make_inference_file_path,make_inference_request_id)
-    print("make_inference_request_id:",make_inference_request_id)
+    make_inference_file_name,make_inference_label,make_inference_confidence,make_inference_request_id,make_inference_model_id,make_inference_model_name,make_inference_type=make_inference(apikey,make_inference_version_id,make_inference_file_path,make_inference_request_id)
     print("make_inference_file_name:",make_inference_file_name)
+    print("make_inference_label:",make_inference_label)
+    print("make_inference_confidence:",make_inference_confidence)
+    print("make_inference_request_id:",make_inference_request_id)
+    print("make_inference_model_id:",make_inference_model_id)
+    print("make_inference_model_name:",make_inference_model_name)
+    print("make_inference_type:",make_inference_type)
+    
 
-    output_file_path="../datasets/BrainTumorClassification/TrialOutput/"
-    get_inference_request_id=make_inference_request_id
-    get_inference_file_name=make_inference_file_name
-    get_inference_image(apikey,get_inference_request_id,get_inference_file_name,output_file_path)
+    # output_file_path="../datasets/BrainTumorClassification/TrialOutput/"
+    # get_inference_request_id=make_inference_request_id
+    # get_inference_file_name=make_inference_file_name
+    # get_inference_image(apikey,get_inference_request_id,get_inference_file_name,output_file_path)
   
 if __name__=="__main__": 
     main() 
