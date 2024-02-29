@@ -2,6 +2,8 @@ import requests
 import logging
 import json
 import configparser
+# from requests_toolbelt.utils import dump
+import shutil
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -282,18 +284,23 @@ def get_version(access_token,model_id):
 #####################################################################################################################################
 def make_inference(access_token,version_id,filename,request_id):
     print("In make_inference")
+    actual_filename=filename.split("/",-2)[-1]
+    
     try:
         payload = {"request_id":request_id}
         files=[
-                ('file',(filename,open(filename,'rb'),'image/jpeg'))
+                ('file',(actual_filename,open(filename,'rb'),'image/jpeg'))
             ]
-        headers={"Accept":"application/json","Auth":access_token}
+
+        headers={"Cookie":f"Auth={access_token}"}
         endpoint = f"{envt_url}api/models_v2/inference/{version_id}"
         response = requests.request("PUT", endpoint, headers=headers, data=payload, files=files)
+
         if response.ok :
             logger.info("Make Inference Success")
-            make_inference_response=response.json()
-            print("Make Inference Information : ",make_inference_response)
+            make_inference_response=response.json()[0]
+            print("make_inference_response:",make_inference_response)
+
             return(make_inference_response.get("request_id"),make_inference_response.get("file_name"))
         elif response.status_code == 401:
             logger.exception("Make Inference Failed : Status Code 401 - Unauthorized: Invalid Auth token")
@@ -307,17 +314,22 @@ def make_inference(access_token,version_id,filename,request_id):
 #####################################################################################################################################
 # GET ALL VERSION INFORMATION FOR A MODEL USING MODEL ID
 #####################################################################################################################################
-def get_inference_image(access_token,request_id,image_id):
+def get_inference_image(access_token,request_id,image_id,output_file_path):
     print("In get_inference_image")
     try:
         endpoint = f"{envt_url}api/results_v2/get/img/{request_id}/{image_id}"
-        headers={"Accept":"application/json","Auth":access_token}
-        response = requests.get(endpoint,headers=headers)
+        print("endpoint:",endpoint)
+        headers={"Auth":access_token}
+        response = requests.get(endpoint,headers=headers,stream=True)
         if response.ok :
             logger.info("Get Inference Success")
-            get_inference_response=response.json()
-            print("response",response)
-            print("Get Inference Information : ",get_inference_response)
+            with open(f"{output_file_path}/{image_id}", 'wb') as out_file:
+                    shutil.copyfileobj(response.raw, out_file)
+            del response
+
+            # get_inference_response=response.json()
+            # print("response",response)
+            # print("Get Inference Information : ",get_inference_response)
         elif response.status_code == 401:
             logger.exception("Get Inference Failed : Status Code 401 - Unauthorized: Invalid Auth token")
         else:
@@ -328,6 +340,12 @@ def get_inference_image(access_token,request_id,image_id):
         logger.exception(e)
 
 
+def format_prepped_request(prepped, encoding=None):
+    # prepped has .method, .path_url, .headers and .body attribute to view the request
+    encoding = encoding or requests.utils.get_encoding_from_headers(prepped.headers)
+    body = prepped.body.decode(encoding) if encoding else '<binary data>' 
+    headers = '\n'.join(['{}: {}'.format(*hv) for hv in prepped.headers.items()])
+    return f"""{prepped.method} {prepped.path_url} HTTP/1.1{headers}{body}"""
 
 def main(): 
 
@@ -369,15 +387,17 @@ def main():
     # get_version_model_id=901
     # get_version(apikey,get_version_model_id)
 
-    # make_inference_version_id="190"
-    # make_inference_file_path="../datasets/BrainTumorClassification/Trial/Try1.jpg"
-    # make_inference_request_id="Try1_Request1"
-    # make_inference_request_id,make_inference_file_name=make_inference(apikey,make_inference_version_id,make_inference_file_path,make_inference_request_id)
+    make_inference_version_id="190"
+    make_inference_file_path="../datasets/BrainTumorClassification/Trial/Try1.jpg"
+    make_inference_request_id=make_inference_file_path.split("/",-2)[-1].split(".",-1)[0]
+    make_inference_request_id,make_inference_file_name=make_inference(apikey,make_inference_version_id,make_inference_file_path,make_inference_request_id)
+    print("make_inference_request_id:",make_inference_request_id)
+    print("make_inference_file_name:",make_inference_file_name)
 
-
-    # get_inference_request_id=""
-    # get_inference_file_name=""
-    # get_inference_image(apikey,get_inference_request_id,get_inference_file_name)
+    output_file_path="../datasets/BrainTumorClassification/TrialOutput/"
+    get_inference_request_id=make_inference_request_id
+    get_inference_file_name=make_inference_file_name
+    get_inference_image(apikey,get_inference_request_id,get_inference_file_name,output_file_path)
   
 if __name__=="__main__": 
     main() 
