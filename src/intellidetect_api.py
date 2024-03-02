@@ -1,24 +1,41 @@
+import os
 import requests
 import logging
 import json
 import configparser
-# from requests_toolbelt.utils import dump
+import random
 import shutil
+
+
+######### classification_models=["resnet18", "vgg16", "alexnet", "googlenet", "mnasnet1_0", "resnet50"] 
+######### segmentation_models=["Unet"] 
+
+
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-
 config = configparser.ConfigParser()
-config.readfp(open(r'../config/config.yaml'))
+config.read_file(open(r'../config/config.yaml'))
 envt_url = config.get('DEFAULT', 'envt_url')
 username = config.get('DEFAULT', 'username')
 password = config.get('DEFAULT', 'password')
 
 
-    # classification_models=["resnet18", "vgg16", "alexnet", "googlenet", "mnasnet1_0", "resnet50"] 
-    # segmentation_models=["Unet"] 
+
+
+#####################################################################################################################################
+# How many files to copy to dataset
+#####################################################################################################################################
+def create_random_sampling(source, dest, no_of_files_for_sample):
+    print(f"Creating a sampling of {no_of_files_for_sample} files")
+    files = os.listdir(source)
+    if not os.path.exists(dest):
+        os.makedirs(dest)
+
+    for file_name in random.sample(files, no_of_files_for_sample):
+        shutil.copyfile(os.path.join(source, file_name), os.path.join(dest, file_name))
 
 
 #####################################################################################################################################
@@ -160,9 +177,10 @@ def create_dataset(access_token,name,description,type,label):
         headers={"Accept":"application/json","Auth":access_token}
         response = requests.post(endpoint, json=api_parms,headers=headers)
         if response.ok :
-            logger.info("Get Dataset Success")
+            logger.info("Create Dataset Success")
             get_create_dataset_response=response.json()
             print("Created Dataset Information : ",get_create_dataset_response)
+            return get_create_dataset_response.get("id")
         elif response.status_code == 401:
             logger.exception("Create Dataset Failed : Status Code 401 - Unauthorized: Invalid Auth token")
         else:
@@ -349,17 +367,49 @@ def format_prepped_request(prepped, encoding=None):
 
 def main(): 
 
-    apikey=login_api(username,password)
-    get_user(apikey)
-    get_dash(apikey)
-    get_model(apikey)
-    get_dataset(apikey)
+    
+    # get_user(apikey)
+    # get_dash(apikey)
+    # get_model(apikey)
+    # get_dataset(apikey)
 
-    # type_of_datatset="Classification"
-    # dataset_name="SmallDataset2"
-    # dataset_description="This is for a trial - SmallDataset2"
-    # dataset_label="Tumor"
-    # create_dataset(apikey,dataset_name,dataset_description,type_of_datatset,dataset_label)
+    ############################################################################################################## 
+    # Brain Classification
+    # Number of files = 500
+    # Set 1
+    ##############################################################################################################
+    type_of_datatset="Classification"
+    for sizes in [500,1000]:
+        for filename in ['glioma','meningioma','pituitary','notumor']:
+            for i in range(1,4):
+                
+                source = f'/Users/evp/Documents/GMU/DAEN690/Datasets/Brain_Classification/Files/Training/{filename}/'         ### Need to be changed based on execution
+                dest = f'/Users/evp/Documents/GMU/DAEN690/Intellidetect_git/VisIQ/datasets/Brain_Classification/N{sizes}/Set{i}/{filename}' ### Need to be changed based on execution
+                create_random_sampling(source, dest,sizes)
+                shutil.make_archive(f'{dest}_final', 'zip', dest)
+
+                apikey=login_api(username,password)
+
+                dataset_name=f"N{sizes}_{filename}_FileSet{i}"
+                dataset_description=f"Classification_N{sizes}_{filename}_FileSet{i}"
+                dataset_label=f"{filename}"
+                dataset_id=create_dataset(apikey,dataset_name,dataset_description,type_of_datatset,dataset_label)
+
+                upload_file_dataset_id=dataset_id
+                upload_file_path=f"{dest}_final.zip"
+                upload_file(apikey,upload_file_dataset_id,upload_file_path)
+
+    # for sizes in [500,1000]:
+    #     for filename in ['glioma','meningioma','pituitary','notumor']:
+    #         for i in range(1,4):
+    #             type_of_datatset="Classification"
+    #             dataset_name=f"N{sizes}_{filename}"
+    #             dataset_description="Classification_N{sizes}_{filename}"
+    #             dataset_label="{filename}"
+    #             dataset_id=create_dataset(apikey,dataset_name,dataset_description,type_of_datatset,dataset_label)
+    #             upload_file_dataset_id=dataset_id
+    #             upload_file_path=f"{dest}_final.zip"
+    #             upload_file(apikey,upload_file_dataset_id,upload_file_path)
 
     # upload_file_dataset_id="929"
     # upload_file_path="../datasets/BrainTumorClassification/Trial/NoTumor.zip"
@@ -387,17 +437,17 @@ def main():
     # get_version_model_id=901
     # get_version(apikey,get_version_model_id)
 
-    make_inference_version_id="190"
-    make_inference_file_path="../datasets/BrainTumorClassification/Trial/Try1.jpg"
-    make_inference_request_id=make_inference_file_path.split("/",-2)[-1].split(".",-1)[0]
-    make_inference_file_name,make_inference_label,make_inference_confidence,make_inference_request_id,make_inference_model_id,make_inference_model_name,make_inference_type=make_inference(apikey,make_inference_version_id,make_inference_file_path,make_inference_request_id)
-    print("make_inference_file_name:",make_inference_file_name)
-    print("make_inference_label:",make_inference_label)
-    print("make_inference_confidence:",make_inference_confidence)
-    print("make_inference_request_id:",make_inference_request_id)
-    print("make_inference_model_id:",make_inference_model_id)
-    print("make_inference_model_name:",make_inference_model_name)
-    print("make_inference_type:",make_inference_type)
+    # make_inference_version_id="190"
+    # make_inference_file_path="../datasets/BrainTumorClassification/Trial/Try1.jpg"
+    # make_inference_request_id=make_inference_file_path.split("/",-2)[-1].split(".",-1)[0]
+    # make_inference_file_name,make_inference_label,make_inference_confidence,make_inference_request_id,make_inference_model_id,make_inference_model_name,make_inference_type=make_inference(apikey,make_inference_version_id,make_inference_file_path,make_inference_request_id)
+    # print("make_inference_file_name:",make_inference_file_name)
+    # print("make_inference_label:",make_inference_label)
+    # print("make_inference_confidence:",make_inference_confidence)
+    # print("make_inference_request_id:",make_inference_request_id)
+    # print("make_inference_model_id:",make_inference_model_id)
+    # print("make_inference_model_name:",make_inference_model_name)
+    # print("make_inference_type:",make_inference_type)
     
 
     # output_file_path="../datasets/BrainTumorClassification/TrialOutput/"
