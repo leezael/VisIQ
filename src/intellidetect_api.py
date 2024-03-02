@@ -357,21 +357,110 @@ def get_inference_image(access_token,request_id,image_id,output_file_path):
         logger.exception("Error : Get Inference Exception - Check get_inference_image call")
         logger.exception(e)
 
+#####################################################################################################################################
+# DELETE DATASET ID
+#####################################################################################################################################
+def delete_dataset(access_token,dataset_id):
+    print("In delete_dataset for : ", dataset_id)
+    try:
+        endpoint = f"{envt_url}api/datasets/delete/{dataset_id}"
+        headers={"Auth":access_token}
+        response = requests.delete(endpoint,headers=headers,stream=True)
+        if response.ok :
+            logger.info("Deleted Dataset ID - Success")
+            delete_dataset_response=response.json()
+            print("Deleted Dataset Information : ",delete_dataset_response)
+        elif response.status_code == 401:
+            logger.exception("Delete Dataset Failed : Status Code 401 - Unauthorized: Invalid Auth token")
+        else:
+            logger.exception(f"Status Code : {response.json()}")
+            logger.exception("Delete Dataset Failed : Status Code not 200")
+    except Exception as e:
+        logger.exception("Error : Delete Dataset Exception - Check delete_dataset call")
+        logger.exception(e)
 
-def format_prepped_request(prepped, encoding=None):
-    # prepped has .method, .path_url, .headers and .body attribute to view the request
-    encoding = encoding or requests.utils.get_encoding_from_headers(prepped.headers)
-    body = prepped.body.decode(encoding) if encoding else '<binary data>' 
-    headers = '\n'.join(['{}: {}'.format(*hv) for hv in prepped.headers.items()])
-    return f"""{prepped.method} {prepped.path_url} HTTP/1.1{headers}{body}"""
+
+#####################################################################################################################################
+# DELETE VERSION ID
+#####################################################################################################################################
+def delete_version(access_token,version_id):
+    print("In delete_version for : ", version_id)
+    try:
+        endpoint = f"{envt_url}api/models_v2/delete/version/{version_id}"
+        headers={"Auth":access_token}
+        response = requests.delete(endpoint,headers=headers,stream=True)
+        if response.ok :
+            logger.info("Deleted Version ID - Success")
+            delete_version_response=response.json()
+            print("Deleted Version Information : ",delete_version_response)
+        elif response.status_code == 401:
+            logger.exception("Delete Version Failed : Status Code 401 - Unauthorized: Invalid Auth token")
+        else:
+            logger.exception(f"Status Code : {response.json()}")
+            logger.exception("Delete Version Failed : Status Code not 200")
+    except Exception as e:
+        logger.exception("Error : Delete Version Exception - Check delete_version call")
+        logger.exception(e)
+
+#####################################################################################################################################
+# DELETE MODEL ID
+#####################################################################################################################################
+def delete_model(access_token,model_id):
+    print("In delete_model for : ", model_id)
+    try:
+        endpoint = f"{envt_url}api/models_v2/delete/{model_id}"
+        headers={"Auth":access_token}
+        response = requests.delete(endpoint,headers=headers,stream=True)
+        if response.ok :
+            logger.info("Deleted Model ID - Success")
+            delete_model_response=response.json()
+            print("Deleted Version Information : ",delete_model_response)
+        elif response.status_code == 401:
+            logger.exception("Delete Model Failed : Status Code 401 - Unauthorized: Invalid Auth token")
+        else:
+            logger.exception(f"Status Code : {response.json()}")
+            logger.exception("Delete Model Failed : Status Code not 200")
+    except Exception as e:
+        logger.exception("Error : Delete Model Exception - Check delete_model call")
+        logger.exception(e)
+
+
+
+
+
+
 
 def main(): 
-
-    
+    apikey=login_api(username,password)
     # get_user(apikey)
     # get_dash(apikey)
     # get_model(apikey)
     # get_dataset(apikey)
+    
+    
+    # # Deletion of Datasets 
+    # dataset_to_be_delete=[943,942,930,929,928,927,926,925,924,923,920,919,918]
+    # dataset_to_be_delete=[924]
+    # for dataset in dataset_to_be_delete:
+    #     delete_dataset(apikey,dataset)
+    # get_dataset(apikey)
+
+
+    # # Deletion of Models 
+    # model_to_be_delete=[901,900,899,897,924]
+    # for model in model_to_be_delete:
+    #     delete_model(apikey,model)
+    # get_model(apikey)
+
+
+
+    # # Deletion of versions 
+    # version_to_be_delete=[190,185,186,187,189]
+    # for version in version_to_be_delete:
+    #     delete_version(apikey,version)
+    
+
+
 
     ############################################################################################################## 
     # Brain Classification
@@ -399,17 +488,7 @@ def main():
                 upload_file_path=f"{dest}_final.zip"
                 upload_file(apikey,upload_file_dataset_id,upload_file_path)
 
-    # for sizes in [500,1000]:
-    #     for filename in ['glioma','meningioma','pituitary','notumor']:
-    #         for i in range(1,4):
-    #             type_of_datatset="Classification"
-    #             dataset_name=f"N{sizes}_{filename}"
-    #             dataset_description="Classification_N{sizes}_{filename}"
-    #             dataset_label="{filename}"
-    #             dataset_id=create_dataset(apikey,dataset_name,dataset_description,type_of_datatset,dataset_label)
-    #             upload_file_dataset_id=dataset_id
-    #             upload_file_path=f"{dest}_final.zip"
-    #             upload_file(apikey,upload_file_dataset_id,upload_file_path)
+
 
     # upload_file_dataset_id="929"
     # upload_file_path="../datasets/BrainTumorClassification/Trial/NoTumor.zip"
