@@ -5,6 +5,8 @@ import json
 import configparser
 import random
 import shutil
+import time
+import csv
 
 
 ######### classification_models=["resnet18", "vgg16", "alexnet", "googlenet", "mnasnet1_0", "resnet50"] 
@@ -319,7 +321,7 @@ def make_inference(access_token,version_id,filename,request_id):
             make_inference_response=response.json()[0]
             print("make_inference_response:",make_inference_response)
 
-            return(make_inference_response.get("file_name"),make_inference_response.get("label"),make_inference_response.get("confidence"),make_inference_response.get("request_id"),make_inference_response.get("model_id"),make_inference_response.get("model_name"),make_inference_response.get("model_type"))
+            return(make_inference_response.get("file_name"),make_inference_response.get("label"),make_inference_response.get("confidence"),make_inference_response.get("request_id"),make_inference_response.get("model_id"),make_inference_response.get("model_name"),make_inference_response.get("type"))
         elif response.status_code == 401:
             logger.exception("Make Inference Failed : Status Code 401 - Unauthorized: Invalid Auth token")
         else:
@@ -454,39 +456,42 @@ def main():
 
 
 
-    # # Deletion of versions 
-    # version_to_be_delete=[190,185,186,187,189]
+    # Deletion of versions 
+    # version_to_be_delete=[221]
     # for version in version_to_be_delete:
     #     delete_version(apikey,version)
+    
+    # get_model(apikey)
     
 
 
 
-    ############################################################################################################## 
+    ############################################################################################################# 
     # Brain Classification
     # Number of files = 500
     # Set 1
-    ##############################################################################################################
-    type_of_datatset="Classification"
-    for sizes in [500,1000]:
-        for filename in ['glioma','meningioma','pituitary','notumor']:
-            for i in range(1,4):
+    #############################################################################################################
+    # type_of_datatset="Classification"
+    # # for sizes in [500,1000]:
+    # for sizes in [2000]:
+    #     for filename in ['glioma','meningioma','pituitary','notumor']:
+    #         for i in range(1,4):
                 
-                source = f'/Users/evp/Documents/GMU/DAEN690/Datasets/Brain_Classification/Files/Training/{filename}/'         ### Need to be changed based on execution
-                dest = f'/Users/evp/Documents/GMU/DAEN690/Intellidetect_git/VisIQ/datasets/Brain_Classification/N{sizes}/Set{i}/{filename}' ### Need to be changed based on execution
-                create_random_sampling(source, dest,sizes)
-                shutil.make_archive(f'{dest}_final', 'zip', dest)
+    #             # source = f'/Users/evp/Documents/GMU/DAEN690/Datasets/Brain_Classification/Combined/Training/{filename}/'         ### Need to be changed based on execution
+    #             dest = f'/Users/evp/Documents/GMU/DAEN690/Intellidetect_git/VisIQ/datasets/Brain_Classification/N{sizes}/Set{i}/{filename}' ### Need to be changed based on execution
+    #             # create_random_sampling(source, dest,sizes)
+    #             # shutil.make_archive(f'{dest}_final', 'zip', dest)
 
-                apikey=login_api(username,password)
+    #             apikey=login_api(username,password)
 
-                dataset_name=f"N{sizes}_{filename}_FileSet{i}"
-                dataset_description=f"Classification_N{sizes}_{filename}_FileSet{i}"
-                dataset_label=f"{filename}"
-                dataset_id=create_dataset(apikey,dataset_name,dataset_description,type_of_datatset,dataset_label)
+    #             dataset_name=f"N{sizes}_{filename}_FileSet{i}"
+    #             dataset_description=f"Classification_N{sizes}_{filename}_FileSet{i}"
+    #             dataset_label=f"{filename}"
+    #             dataset_id=create_dataset(apikey,dataset_name,dataset_description,type_of_datatset,dataset_label)
 
-                upload_file_dataset_id=dataset_id
-                upload_file_path=f"{dest}_final.zip"
-                upload_file(apikey,upload_file_dataset_id,upload_file_path)
+    #             upload_file_dataset_id=dataset_id
+    #             upload_file_path=f"{dest}_final.zip"
+    #             upload_file(apikey,upload_file_dataset_id,upload_file_path)
 
 
 
@@ -498,23 +503,96 @@ def main():
     # upload_file_path="../datasets/BrainTumorClassification/Trial/Tumor.zip"
     # upload_file(apikey,upload_file_dataset_id,upload_file_path)
 
-    # string_of_datasets="929,930"
+    
+
+    # string_of_datasets="1044,1047,1050,1053"
     # list_of_datasets=string_of_datasets.split(",")
     # type_of_model="Classification"
-    # model_name="Trial_Model1_classification_tumor"
-    # model_description="This is a for trial _ tumor model1"
+    # model_name="N2000_FileSet3_Model"
+    # model_description="N2000_FileSet3_Model"
     # create_model(apikey,model_name,model_description,list_of_datasets,type_of_model)
+    # get_model(apikey)
+
+    # version_baseModel="resnet18"
+    # version_learningRate=0.01
+    # version_momentum=0.9
+    # version_type="Classification"
+    # version_epochs=20
+    # version_model_id=912
+    # create_version(apikey,version_baseModel,version_learningRate,version_momentum,version_type,version_epochs,version_model_id)
+
+    # version_baseModel="resnet18"
+    # version_learningRate=0.01
+    # version_momentum=0.9
+    # version_type="Classification"
+    # version_epochs=50
+    # version_model_id=912
+    # create_version(apikey,version_baseModel,version_learningRate,version_momentum,version_type,version_epochs,version_model_id)
 
     # version_baseModel="resnet50"
     # version_learningRate=0.01
     # version_momentum=0.9
     # version_type="Classification"
-    # version_epochs=5
-    # version_model_id=901
+    # version_epochs=20
+    # version_model_id=912
+    # create_version(apikey,version_baseModel,version_learningRate,version_momentum,version_type,version_epochs,version_model_id)
+
+    # version_baseModel="resnet50"
+    # version_learningRate=0.01
+    # version_momentum=0.9
+    # version_type="Classification"
+    # version_epochs=50
+    # version_model_id=912
+    # create_version(apikey,version_baseModel,version_learningRate,version_momentum,version_type,version_epochs,version_model_id)
+
+    # version_baseModel="vgg16"
+    # version_learningRate=0.01
+    # version_momentum=0.9
+    # version_type="Classification"
+    # version_epochs=20
+    # version_model_id=912
+    # create_version(apikey,version_baseModel,version_learningRate,version_momentum,version_type,version_epochs,version_model_id)
+
+    # version_baseModel="vgg16"
+    # version_learningRate=0.01
+    # version_momentum=0.9
+    # version_type="Classification"
+    # version_epochs=50
+    # version_model_id=912
     # create_version(apikey,version_baseModel,version_learningRate,version_momentum,version_type,version_epochs,version_model_id)
 
     # get_version_model_id=901
     # get_version(apikey,get_version_model_id)
+
+    make_inference_version_id="201"
+    actual_dataset="1001"
+    inference_location="/Users/evp/Documents/GMU/DAEN690/Intellidetect_git/VisIQ/datasets/Brain_Classification/Testing_1/glioma/Set4/"
+    # onlyfiles = [f for f in os.listdir(inference_location) if os.path.isfile(os.path.join(inference_location, f)) and f!=".DS_Store"]
+    name1=inference_location.split("/",-1)[-4]
+    name2=inference_location.split("/",-1)[-3]
+    name3=inference_location.split("/",-1)[-2]
+    final_list=[]
+
+    final_file_name=f"ActualDataset{actual_dataset}_Version{make_inference_version_id}_{name1}_{name2}_{name3}.csv"
+    onlyfiles = [os.path.join(inference_location, f) for f in os.listdir(inference_location) if os.path.isfile(os.path.join(inference_location, f)) and f!=".DS_Store"]
+    for file in onlyfiles:
+        file_name=file.split("/",-1)[-1].split(".",-1)[0]
+        set_name=file.split("/",-1)[-2]
+        actual_class=file.split("/",-1)[-3]
+        print(f"Now Processing : Trial1_BrainTumorClassification_ActualDataset{actual_dataset}_Version{make_inference_version_id}_Testing_1_{actual_class}_{set_name}_{file_name}")
+        make_inference_file_path=file
+        make_inference_request_id=f"ActualDataset{actual_dataset}_Version{make_inference_version_id}_Trial1_BrainTumorClassification_Testing_1_{actual_class}_{set_name}_{file_name}"
+        make_inference_file_name,make_inference_label,make_inference_confidence,make_inference_request_id,make_inference_model_id,make_inference_model_name,make_inference_type=make_inference(apikey,make_inference_version_id,make_inference_file_path,make_inference_request_id)
+        final_string=f"{make_inference_version_id},{actual_dataset},{make_inference_file_name},{make_inference_label},{make_inference_confidence},{make_inference_request_id},{make_inference_model_id},{make_inference_model_name},{make_inference_type}"
+        final_string_to_list = list(final_string.split(",")) 
+        final_list.append(final_string_to_list)
+        print(final_string)
+        time.sleep(2)
+    
+    with open(final_file_name, 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerows(final_list) # Use writerows for nested list
+
 
     # make_inference_version_id="190"
     # make_inference_file_path="../datasets/BrainTumorClassification/Trial/Try1.jpg"
