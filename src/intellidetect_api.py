@@ -564,26 +564,43 @@ def main():
     # get_version_model_id=901
     # get_version(apikey,get_version_model_id)
 
+    ##### ------------------------------------------------------------------------------------------------------------------------------------
+    ##### ------------------------------------------------------------------------------------------------------------------------------------
+    ##### Things to change
     make_inference_version_id="201"
-    actual_dataset="1001"
-    inference_location="/Users/evp/Documents/GMU/DAEN690/Intellidetect_git/VisIQ/datasets/Brain_Classification/Testing_1/glioma/Set4/"
+    
+    dict_model_datasets={"1001":"glioma","1007":"pituitary","1010":"notumor","1004":"meningioma"}
+    inference_location="/Users/evp/Documents/GMU/DAEN690/Intellidetect_git/VisIQ/datasets/Brain_Classification/Testing_1_and_2/glioma/ALL/"
+    # inference_location="/Users/evp/Documents/GMU/DAEN690/Intellidetect_git/VisIQ/datasets/Brain_Classification/Testing_1/notumor/ALL/"
+    ##### ------------------------------------------------------------------------------------------------------------------------------------
+    ##### ------------------------------------------------------------------------------------------------------------------------------------
+
     # onlyfiles = [f for f in os.listdir(inference_location) if os.path.isfile(os.path.join(inference_location, f)) and f!=".DS_Store"]
     name1=inference_location.split("/",-1)[-4]
     name2=inference_location.split("/",-1)[-3]
     name3=inference_location.split("/",-1)[-2]
+    key_list = list(dict_model_datasets.keys())
+    val_list = list(dict_model_datasets.values())
+    actual_dataset= key_list[val_list.index(name2)]
     final_list=[]
 
-    final_file_name=f"ActualDataset{actual_dataset}_Version{make_inference_version_id}_{name1}_{name2}_{name3}.csv"
+    final_file_name=f"FinalDataset{actual_dataset}_Version{make_inference_version_id}_{name1}_{name2}_{name3}.csv"
     onlyfiles = [os.path.join(inference_location, f) for f in os.listdir(inference_location) if os.path.isfile(os.path.join(inference_location, f)) and f!=".DS_Store"]
     for file in onlyfiles:
         file_name=file.split("/",-1)[-1].split(".",-1)[0]
         set_name=file.split("/",-1)[-2]
         actual_class=file.split("/",-1)[-3]
-        print(f"Now Processing : Trial1_BrainTumorClassification_ActualDataset{actual_dataset}_Version{make_inference_version_id}_Testing_1_{actual_class}_{set_name}_{file_name}")
+        print(f"Now Processing : FINAL_BrainTumorClassification_ActualDataset{actual_dataset}_Version{make_inference_version_id}_Testing_1_{actual_class}_{set_name}_{file_name}")
         make_inference_file_path=file
-        make_inference_request_id=f"ActualDataset{actual_dataset}_Version{make_inference_version_id}_Trial1_BrainTumorClassification_Testing_1_{actual_class}_{set_name}_{file_name}"
+        make_inference_request_id=f"FinalDataset{actual_dataset}_Version{make_inference_version_id}_FINAL_BrainTumorClassification_Testing_1_{actual_class}_{set_name}_{file_name}"
         make_inference_file_name,make_inference_label,make_inference_confidence,make_inference_request_id,make_inference_model_id,make_inference_model_name,make_inference_type=make_inference(apikey,make_inference_version_id,make_inference_file_path,make_inference_request_id)
-        final_string=f"{make_inference_version_id},{actual_dataset},{make_inference_file_name},{make_inference_label},{make_inference_confidence},{make_inference_request_id},{make_inference_model_id},{make_inference_model_name},{make_inference_type}"
+        actual_dataset_name=dict_model_datasets.get(actual_dataset)
+        make_inference_label_name=dict_model_datasets.get(make_inference_label)
+        if make_inference_label == actual_dataset:
+            matched="YES"
+        else:
+            matched="NO"
+        final_string=f"{make_inference_version_id},{actual_dataset},{make_inference_file_name},{make_inference_label},{make_inference_confidence},{make_inference_request_id},{make_inference_model_id},{make_inference_model_name},{make_inference_type},{actual_dataset_name},{make_inference_label_name},{matched}"
         final_string_to_list = list(final_string.split(",")) 
         final_list.append(final_string_to_list)
         print(final_string)
