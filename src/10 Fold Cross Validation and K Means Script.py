@@ -10,7 +10,8 @@ import pandas as pd
 from sklearn.model_selection import KFold
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
-
+from scipy.stats import f_oneway
+import seaborn as sns
 
 start_data = pd.read_excel("C:/Users/andre/Downloads/DAEN_690.xlsx", sheet_name = 'Version202_ALL')
 # Ingest the testing results 
@@ -60,8 +61,8 @@ final_df["Index"] = final_data
 full_data = final_df.merge(start_data, left_on = "Index", right_index = True)
 
 # Subset the data for K-Means
-K_Means_data = full_data[["MODEL_NAME", "MATCH"]]
-K_Means_data.rename(columns = {"IMAGE_NAME_y" : "IMAGE_NAME"}, inplace = True)
+K_Means_data = full_data[["MODEL_NAME", "MATCH", "CONFIDENCE"]]
+full_data.rename(columns = {"IMAGE_NAME_y" : "IMAGE_NAME"}, inplace = True)
 
 # Create dumy columns for Model Name and Match
 K_Means_data_dummies = pd.get_dummies(K_Means_data)
@@ -71,7 +72,7 @@ inertias = []
 
 for i in range(1, 15):
     kmeans = KMeans(n_clusters = i)
-    kmeans.fit(final_df[['attr1', 'attr2']])
+    kmeans.fit(K_Means_data_dummies)
     inertias.append(kmeans.inertia_)
     
 
@@ -82,3 +83,16 @@ plt.ylabel('Inertia')
 plt.show()
 
 # Start the ANOVA analysis using scipy
+# Create the two datasets to use by using the confidence, and then see their size
+first_ANOVA_df = full_data[full_data['PREDICTED_DATASET_ID'].isin([1001, 1004])]
+second_ANOVA_df = full_data[full_data['PREDICTED_DATASET_ID'].isin([1007, 1010])]
+
+first_ANOVA_conf = first_ANOVA_df['CONFIDENCE'] 
+second_ANOVA_conf = first_ANOVA_df['CONFIDENCE'] 
+
+# Perform the ANOVA test
+anova_prob = f_oneway(first_ANOVA_conf, second_ANOVA_conf)
+
+# Use seaborn to see a boxplot of the data
+sns.boxplot(x = 'PREDICTED_DATASET_ID', y = 'CONFIDENCE', data = full_data)
+plt.plot()
