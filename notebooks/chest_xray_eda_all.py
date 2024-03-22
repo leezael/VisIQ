@@ -163,7 +163,7 @@ def chart_data(df_image_properties):
 
 def plot_brightness(df_image_properties):
     df_image_properties.br_med.hist()
-    plt.xlabel('Median Brigthness')
+    plt.xlabel('Median Brightness')
     plt.ylabel('Counts')
     plt.show()
 

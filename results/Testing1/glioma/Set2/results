@@ -1,0 +1,253 @@
+In login_api
+INFO:__main__:Login Success
+gAAAAABl59lNZskKXpYeQB2WWKxgZb-EVF9QwhXAP5mGHIwkI1SWudqjcJuOK1FRnEbwvsRf4qpOpgXKwwp0yHC0jDCyM4albSFpQvd2r_MTacdXQqlirYCLMzhUcQqiczcIN4MRrD05
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_52
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_52.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_52', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_52.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_52,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_91
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_91.jpeg', 'label': '1001', 'confidence': '98', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_91', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_91.jpeg,1001,98,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_91,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_85
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_85.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_85', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_85.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_85,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_84
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_84.jpeg', 'label': '1007', 'confidence': '82', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_84', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_84.jpeg,1007,82,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_84,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_90
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_90.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_90', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_90.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_90,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_53
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_53.jpeg', 'label': '1001', 'confidence': '67', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_53', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_53.jpeg,1001,67,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_53,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_79
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_79.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_79', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_79.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_79,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_51
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_51.jpeg', 'label': '1004', 'confidence': '79', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_51', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_51.jpeg,1004,79,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_51,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_86
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_86.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_86', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_86.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_86,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_92
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_92.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_92', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_92.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_92,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_93
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_93.jpeg', 'label': '1001', 'confidence': '70', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_93', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_93.jpeg,1001,70,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_93,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_87
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_87.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_87', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_87.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_87,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_50
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_50.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_50', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_50.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_50,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_78
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_78.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_78', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_78.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_78,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_54
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_54.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_54', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_54.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_54,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_68
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_68.jpeg', 'label': '1001', 'confidence': '96', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_68', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_68.jpeg,1001,96,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_68,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_83
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_83.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_83', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_83.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_83,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_97
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_97.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_97', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_97.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_97,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_96
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_96.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_96', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_96.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_96,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_82
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_82.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_82', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_82.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_82,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_69
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_69.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_69', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_69.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_69,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_55
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_55.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_55', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_55.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_55,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_57
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_57.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_57', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_57.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_57,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_94
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_94.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_94', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_94.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_94,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_80
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_80.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_80', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_80.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_80,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_81
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_81.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_81', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_81.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_81,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_95
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_95.jpeg', 'label': '1001', 'confidence': '80', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_95', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_95.jpeg,1001,80,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_95,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_56
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_56.jpeg', 'label': '1004', 'confidence': '91', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_56', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_56.jpeg,1004,91,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_56,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_73
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_73.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_73', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_73.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_73,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_67
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_67.jpeg', 'label': '1007', 'confidence': '39', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_67', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_67.jpeg,1007,39,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_67,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_98
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_98.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_98', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_98.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_98,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_99
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_99.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_99', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_99.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_99,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_66
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_66.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_66', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_66.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_66,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_72
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_72.jpeg', 'label': '1004', 'confidence': '80', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_72', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_72.jpeg,1004,80,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_72,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_58
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_58.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_58', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_58.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_58,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_64
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_64.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_64', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_64.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_64,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_70
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_70.jpeg', 'label': '1001', 'confidence': '98', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_70', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_70.jpeg,1001,98,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_70,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_71
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_71.jpeg', 'label': '1001', 'confidence': '61', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_71', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_71.jpeg,1001,61,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_71,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_65
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_65.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_65', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_65.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_65,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_59
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_59.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_59', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_59.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_59,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_61
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_61.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_61', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_61.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_61,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_75
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_75.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_75', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_75.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_75,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_74
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_74.jpeg', 'label': '1001', 'confidence': '79', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_74', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_74.jpeg,1001,79,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_74,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_60
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_60.jpeg', 'label': '1001', 'confidence': '96', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_60', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_60.jpeg,1001,96,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_60,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_76
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_76.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_76', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_76.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_76,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_62
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_62.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_62', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_62.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_62,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_89
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_89.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_89', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_89.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_89,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_88
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_88.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_88', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_88.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_88,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_63
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_63.jpeg', 'label': '1001', 'confidence': '93', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_63', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_63.jpeg,1001,93,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_63,911,N500_FileSet1_Model,Classification
+Now Processing : Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_77
+In make_inference
+INFO:__main__:Make Inference Success
+make_inference_response: {'file_name': 'glioma_set_77.jpeg', 'label': '1001', 'confidence': '99', 'request_id': 'Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_77', 'model_id': 911, 'model_name': 'N500_FileSet1_Model', 'type': 'Classification'}
+Results->>>glioma_set_77.jpeg,1001,99,Trial1_BrainTumorClassification_Testing_1_glioma_Set2_glioma_set_77,911,N500_FileSet1_Model,Classification
