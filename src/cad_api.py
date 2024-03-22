@@ -567,7 +567,7 @@ def main():
     ##### ------------------------------------------------------------------------------------------------------------------------------------
     ##### ------------------------------------------------------------------------------------------------------------------------------------
     ##### Things to change
-    make_inference_version_id=""
+    make_inference_version_id="372"
     
     dict_model_datasets={"1149":"Positive","1150":"Negative"}
     inference_location="/Users/olungwedc/Desktop/GMU/Spring24/DAEN 690/Avyuct/coronary/dataset/test/Positive","/Users/olungwedc/Desktop/GMU/Spring24/DAEN 690/Avyuct/coronary/dataset/test/Negative"
