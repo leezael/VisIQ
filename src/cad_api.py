@@ -570,22 +570,22 @@ def main():
     make_inference_version_id=""
     
     dict_model_datasets={"1149":"Positive","1150":"Negative"}
-    inference_location="/Users/olungwedc/Desktop/GMU/Spring24/DAEN 690/Avyuct/coronary/dataset/test/"
+    inference_location="/Users/olungwedc/Desktop/GMU/Spring24/DAEN 690/Avyuct/coronary/dataset/test/Positive","/Users/olungwedc/Desktop/GMU/Spring24/DAEN 690/Avyuct/coronary/dataset/test/Negative"
     #inference_location="/Users/evp/Documents/GMU/DAEN690/Intellidetect_git/VisIQ/datasets/Brain_Classification/Testing_1_and_2/glioma/ALL/"
     # inference_location="/Users/evp/Documents/GMU/DAEN690/Intellidetect_git/VisIQ/datasets/Brain_Classification/Testing_1/notumor/ALL/"
     ##### ------------------------------------------------------------------------------------------------------------------------------------
     ##### ------------------------------------------------------------------------------------------------------------------------------------
 
     # onlyfiles = [f for f in os.listdir(inference_location) if os.path.isfile(os.path.join(inference_location, f)) and f!=".DS_Store"]
-    name1=inference_location.split("/",-1)[-4]
-    name2=inference_location.split("/",-1)[-3]
+    name1=inference_location.split("/",-1)[-3]
+    name2=inference_location.split("/",-1)[-2]
     #name3=inference_location.split("/",-1)[-2]
     key_list = list(dict_model_datasets.keys())
     val_list = list(dict_model_datasets.values())
     actual_dataset= key_list[val_list.index(name2)]
     final_list=[]
 
-    final_file_name=f"FinalDataset{actual_dataset}_Version{make_inference_version_id}_{name1}_{name2}_{name3}.csv"
+    final_file_name=f"FinalDataset{actual_dataset}_Version{make_inference_version_id}_{name1}_{name2}.csv"
     onlyfiles = [os.path.join(inference_location, f) for f in os.listdir(inference_location) if os.path.isfile(os.path.join(inference_location, f)) and f!=".DS_Store"]
     for file in onlyfiles:
         file_name=file.split("/",-1)[-1].split(".",-1)[0]
