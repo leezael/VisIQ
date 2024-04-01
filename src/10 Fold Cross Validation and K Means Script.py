@@ -12,7 +12,8 @@ from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 from scipy.stats import f_oneway
 import seaborn as sns
-
+from seaborn_qqplot import pplot
+from scipy.stats import exponnorm
 
 # Define the function that will concatenate all the K Folds into one
 
@@ -53,9 +54,19 @@ start_data_202 = pd.read_excel("C:/Users/andre/Downloads/DAEN_690.xlsx", sheet_n
 
 start_data_201 = pd.read_excel("C:/Users/andre/Downloads/DAEN_690.xlsx", sheet_name = 'Version201_ALL')
 
-start_data_335 = pd.read_excel("C:/Users/andre/Downloads/DAEN_690_INFERENCE_CAD.xlsx", sheet_name = '500_V945_INF100')
+start_data_main = pd.read_excel("C:/Users/andre/Downloads/DAEN_690_INFERENCE_CAD.xlsx", sheet_name = None)
 
-df_list = [start_data_202, start_data_201, start_data_335]
+start_data_concat = pd.concat(start_data_main, ignore_index = True)
+
+# Drop the first three columns
+
+start_data_concat.drop( columns = start_data_concat.columns[1:3], inplace = True)
+
+# Drop the first eight rows
+
+start_data_concat.drop([0, 1, 2, 3, 4, 5, 6, 7, 8], inplace = True)
+
+df_list = [start_data_202, start_data_201, start_data_concat]
 
 start_data = pd.concat(df_list)
 
@@ -78,6 +89,7 @@ full_data = final_df.merge(start_data, left_on = "Index", right_index = True)
 # Convert the model version and final dataset ID into categorical variables
 full_data["MODEL_VERSION"] = full_data["MODEL_VERSION"].astype(str)
 full_data["ACTUAL_DATASET_ID"] = full_data["ACTUAL_DATASET_ID"].astype(str)
+full_data["PREDICTED_DATASET_ID"] = full_data["PREDICTED_DATASET_ID"].astype(str)
 
 # Subset the data for K-Means
 K_Means_data = full_data[["MODEL_NAME", "MATCH", "CONFIDENCE", "MODEL_VERSION", "ACTUAL_DATASET_ID"]]
@@ -159,3 +171,23 @@ anova_prob_cluster = f_oneway(first_ANOVA_pre_c, second_ANOVA_pre_c)
 boxplot_c = sns.boxplot(x = 'Cluster', y = 'CONFIDENCE', data = full_data, hue = 'ACTUAL_DATASET_ID')
 sns.move_legend(boxplot_c, "upper left", bbox_to_anchor = (1, 1))
 plt.plot()
+
+# Get the continuous variables from the full data
+continuous_var = full_data.select_dtypes(include = 'number')
+# Drop the Index
+continuous_var.drop(columns = ['Index'], inplace = True)
+# Correlation Matrix for continuous variables
+corr_mat = continuous_var.corr()
+# Mask the upper corner
+mask = np.triu(np.ones_like(corr_mat, dtype=bool))
+sns.heatmap(corr_mat, mask = mask)
+plt.show()
+# Q-Q plots for continuous variables
+pplot(continuous_var, x = "CONFIDENCE", y = exponnorm, kind = 'qq')
+plt.show()
+
+pplot(continuous_var, x = "MATCH_NUM", y = exponnorm, kind = 'qq')
+plt.show()
+
+pplot(continuous_var, x = "Cluster", y = exponnorm, kind = 'qq')
+plt.show()
