@@ -567,18 +567,22 @@ def main():
     ##### ------------------------------------------------------------------------------------------------------------------------------------
     ##### ------------------------------------------------------------------------------------------------------------------------------------
     ##### Things to change
-    make_inference_version_id="372"
+    make_inference_version_id="335"
     
-    dict_model_datasets={"1149":"Positive","1150":"Negative"}
-    inference_location="/Users/olungwedc/Desktop/GMU/Spring24/DAEN 690/Avyuct/coronary/dataset/test/Positive","/Users/olungwedc/Desktop/GMU/Spring24/DAEN 690/Avyuct/coronary/dataset/test/Negative"
+    dict_model_datasets={"1147":"Positive","1148":"Negative"}
+    #inference_location="/Users/olungwedc/Desktop/GMU/Spring24/DAEN 690/Avyuct/coronary/dataset/test/Positive/n25 pos.zip","/Users/olungwedc/Desktop/GMU/Spring24/DAEN 690/Avyuct/coronary/dataset/test/Negative/n25 neg.zip"
+    #inference_location="/Users/olungwedc/Desktop/GMU/Spring24/DAEN 690/Avyuct/coronary/dataset/test/Positive"
+    inference_location="/Users/olungwedc/Desktop/GMU/Spring24/DAEN 690/Avyuct/coronary/dataset/test/Golden/Positive"
+####
+
     #inference_location="/Users/evp/Documents/GMU/DAEN690/Intellidetect_git/VisIQ/datasets/Brain_Classification/Testing_1_and_2/glioma/ALL/"
     # inference_location="/Users/evp/Documents/GMU/DAEN690/Intellidetect_git/VisIQ/datasets/Brain_Classification/Testing_1/notumor/ALL/"
     ##### ------------------------------------------------------------------------------------------------------------------------------------
     ##### ------------------------------------------------------------------------------------------------------------------------------------
 
     # onlyfiles = [f for f in os.listdir(inference_location) if os.path.isfile(os.path.join(inference_location, f)) and f!=".DS_Store"]
-    name1=inference_location.split("/",-1)[-3]
-    name2=inference_location.split("/",-1)[-2]
+    name1=inference_location.split("/",-1)[-2]
+    name2=inference_location.split("/",-1)[-1]
     #name3=inference_location.split("/",-1)[-2]
     key_list = list(dict_model_datasets.keys())
     val_list = list(dict_model_datasets.values())
@@ -591,9 +595,9 @@ def main():
         file_name=file.split("/",-1)[-1].split(".",-1)[0]
         set_name=file.split("/",-1)[-2]
         actual_class=file.split("/",-1)[-3]
-        print(f"Now Processing : FINAL_BrainTumorClassification_ActualDataset{actual_dataset}_Version{make_inference_version_id}_Testing_1_{actual_class}_{set_name}_{file_name}")
+        print(f"Now Processing : FINAL_CADClassification_ActualDataset{actual_dataset}_Version{make_inference_version_id}_Testing_1_{actual_class}_{set_name}_{file_name}")
         make_inference_file_path=file
-        make_inference_request_id=f"FinalDataset{actual_dataset}_Version{make_inference_version_id}_FINAL_BrainTumorClassification_Testing_1_{actual_class}_{set_name}_{file_name}"
+        make_inference_request_id=f"FinalDataset{actual_dataset}_Version{make_inference_version_id}_FINAL_CADClassification_Testing_1_{actual_class}_{set_name}_{file_name}"
         make_inference_file_name,make_inference_label,make_inference_confidence,make_inference_request_id,make_inference_model_id,make_inference_model_name,make_inference_type=make_inference(apikey,make_inference_version_id,make_inference_file_path,make_inference_request_id)
         actual_dataset_name=dict_model_datasets.get(actual_dataset)
         make_inference_label_name=dict_model_datasets.get(make_inference_label)
