@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import KFold
 from sklearn.cluster import KMeans
+from sklearn import linear_model
 import matplotlib.pyplot as plt
 from scipy.stats import f_oneway
 import seaborn as sns
@@ -167,9 +168,15 @@ second_ANOVA_pre_c = second_ANOVA_df_c["MATCH_NUM"]
 
 anova_prob_cluster = f_oneway(first_ANOVA_pre_c, second_ANOVA_pre_c)
 
-# Boxplot
+# Boxplot by cluster
 boxplot_c = sns.boxplot(x = 'Cluster', y = 'CONFIDENCE', data = full_data, hue = 'ACTUAL_DATASET_ID')
 sns.move_legend(boxplot_c, "upper left", bbox_to_anchor = (1, 1))
+plt.plot()
+
+# Boxplot by model versions and actual dataset ID
+boxplot_conf = sns.boxplot(x = 'MODEL_VERSION', y = 'CONFIDENCE', data = full_data, hue = 'ACTUAL_DATASET_ID')
+plt.xticks(rotation=90)
+sns.move_legend(boxplot_conf, "upper left", bbox_to_anchor = (1, 1))
 plt.plot()
 
 # Get the continuous variables from the full data
@@ -191,3 +198,16 @@ plt.show()
 
 pplot(continuous_var, x = "Cluster", y = exponnorm, kind = 'qq')
 plt.show()
+
+# Linear Regression model on Confidence
+# Get dummies from all variables
+
+y = K_Means_data_dummies['CONFIDENCE']
+x = K_Means_data_dummies.drop(['CONFIDENCE'], axis = 1)
+
+Regressor = linear_model.LinearRegression()
+
+# Train the model 
+Regressor.fit(x, y)
+
+print(Regressor.coef_)
