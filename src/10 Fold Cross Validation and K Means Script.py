@@ -10,6 +10,9 @@ import pandas as pd
 from sklearn.model_selection import KFold
 from sklearn.cluster import KMeans
 from sklearn import linear_model
+from sklearn.metrics import accuracy_score
+from sklearn import tree
+from sklearn import ensemble
 import matplotlib.pyplot as plt
 from scipy.stats import f_oneway
 import seaborn as sns
@@ -210,4 +213,92 @@ Regressor = linear_model.LinearRegression()
 # Train the model 
 Regressor.fit(x, y)
 
-print(Regressor.coef_)
+# Create the regression table
+
+regression_table = pd.DataFrame(list(x.columns)).copy()
+regression_table.insert(len(regression_table.columns),"Coefficients", Regressor.coef_.transpose())
+regression_table.rename(columns = {0 : "Features"}, inplace = True)
+
+print(regression_table)
+
+# Filter the table to the top 5 regressor features by using the absolute value
+regression_table["Absolute Coefficients"] = regression_table["Coefficients"].abs()
+regression_table.sort_values(by = ["Absolute Coefficients"], ascending = False)
+
+regression_table.head(3)
+
+# Print the score of the model
+reg_pred = Regressor.predict(x)
+
+print(Regressor.score(x, y))
+
+# Logistic Regression with Cluster and Match being the target
+Log_Regressor = linear_model.LogisticRegression(solver='lbfgs', max_iter=3000)
+    
+Log_Regressor.fit(K_Means_data_dummies, clusters)
+
+Log_Regressor.coef_
+
+# Print the accuracy of the Logistic Regression Model
+print(Log_Regressor.score(K_Means_data_dummies, clusters))
+
+# Print the Logistic Regression Table
+log_table = pd.DataFrame(list(K_Means_data_dummies.columns)).copy()
+log_table.insert(len(log_table.columns),"Coefficients", Log_Regressor.coef_.transpose())
+log_table.rename(columns = {0 : "Features"}, inplace = True)
+log_table["Absolute Coefficients"] = log_table["Coefficients"].abs()
+log_table.sort_values(by = ["Absolute Coefficients"], ascending = False)
+
+log_table.head(5)
+
+# Train the model on Match instead of Cluster
+Log_Regressor_Match = linear_model.LogisticRegression(solver='lbfgs', max_iter=3000)
+
+# Drop the match variable
+x_match = K_Means_data_dummies.drop(columns = ["MATCH_YES", "MATCH_NO"])
+Log_Regressor_Match.fit(x_match, full_data["MATCH_NUM"])
+
+Log_Regressor_Match.coef_
+
+# Print the accuracy of the Logistic Regression Model
+print(Log_Regressor_Match.score(x_match, full_data["MATCH_NUM"]))
+
+# Print the Logistic Regression Table
+log_table_match = pd.DataFrame(list(x_match.columns)).copy()
+log_table_match.insert(len(log_table_match.columns),"Coefficients", Log_Regressor_Match.coef_.transpose())
+log_table_match.rename(columns = {0 : "Features"}, inplace = True)
+log_table_match["Absolute Coefficients"] = log_table_match["Coefficients"].abs()
+log_table_match.sort_values(by = ["Absolute Coefficients"], ascending = False)
+
+log_table.head(5)
+
+# Train a classification tree with Match
+
+TreeClassifier = tree.DecisionTreeClassifier()
+TreeClassifier.fit(x_match, full_data["MATCH_NUM"])
+
+# Print the accuracy of the Classification Tree
+print(TreeClassifier.score(x_match, full_data["MATCH_NUM"]))
+tree_importance = TreeClassifier.feature_importances_
+
+# Plot the tree importances sorted
+tree_importances = pd.Series(tree_importance, index = x_match.columns)
+tree_importances.sort_values(ascending = False, inplace = True)
+plt.title("Decision Tree Variable Importance")
+tree_importances.plot.bar()
+plt.show()
+
+# Train a random forest with Match
+RD_CLASS = ensemble.RandomForestClassifier()
+RD_CLASS.fit(x_match, full_data["MATCH_NUM"])
+
+# Print the accuracy of the Random Forest Classifier
+print(RD_CLASS.score(x_match, full_data["MATCH_NUM"]))
+forest_importance = RD_CLASS.feature_importances_
+
+# Plot the forest importances sorted
+forest_importances = pd.Series(forest_importance, index = x_match.columns)
+forest_importances.sort_values(ascending = False, inplace = True)
+plt.title("Random Forest Variable Importance")
+forest_importances.plot.bar()
+plt.show()
