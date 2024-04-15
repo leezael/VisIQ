@@ -11,7 +11,9 @@ from sklearn.model_selection import KFold
 from sklearn.cluster import KMeans
 from sklearn import linear_model
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import mean_squared_error
 from sklearn import tree
+from sklearn import neighbors
 from sklearn import ensemble
 import matplotlib.pyplot as plt
 from scipy.stats import f_oneway
@@ -232,6 +234,77 @@ reg_pred = Regressor.predict(x)
 
 print(Regressor.score(x, y))
 
+# Print the MSE as well
+
+print(mean_squared_error(y, reg_pred))
+
+# Fit a decision tree regressor on Confidence
+
+TreeReg = tree.DecisionTreeRegressor()
+TreeReg.fit(x, y)
+Tree_Reg_pred = TreeReg.predict(x)
+
+# Print the accuracy of the regressor tree
+print(TreeReg.score(x, y))
+tree_importance_reg = TreeReg.feature_importances_
+
+# Plot the tree importances sorted
+tree_importances_reg = pd.Series(tree_importance_reg, index = x.columns)
+tree_importances_reg.sort_values(ascending = False, inplace = True)
+plt.title("Decision Tree Regressor Variable Importance")
+tree_importances_reg.plot.bar()
+plt.show()
+
+# The score is a bit higher than the linear regression model, although still low to describe confidence besides the match correlation
+
+Knn = neighbors.KNeighborsRegressor(n_neighbors = 10)
+
+Knn.fit(x, y)
+
+knn_pred = Knn.predict(x)
+
+# Print KNN accuracy
+
+print(mean_squared_error(y, knn_pred))
+
+# Try with five neighbors instead, as this model is worse than the linear regression model
+
+Knn_5 = neighbors.KNeighborsRegressor(n_neighbors = 5)
+
+Knn_5.fit(x, y)
+
+knn_pred_5 = Knn_5.predict(x)
+
+# Print KNN accuracy
+
+print(mean_squared_error(y, knn_pred_5))
+
+# Try with 20 neighbors to finish the test of the KNN model
+
+Knn_20 = neighbors.KNeighborsRegressor(n_neighbors = 20)
+
+Knn_20.fit(x, y)
+
+knn_pred_20 = Knn_20.predict(x)
+
+# Print KNN accuracy
+
+print(mean_squared_error(y, knn_pred_20))
+
+# KNN is not capable of having a lower ME than regular regression.
+
+# Fit a random forest
+
+Forest_reg = ensemble.RandomForestRegressor()
+
+Forest_reg.fit(x, y)
+
+Forest_reg_pred = Forest_reg.predict(x)
+
+# Print KNN accuracy
+
+print(mean_squared_error(y, Forest_reg_pred))
+
 # Logistic Regression with Cluster and Match being the target
 Log_Regressor = linear_model.LogisticRegression(solver='lbfgs', max_iter=3000)
     
@@ -270,7 +343,7 @@ log_table_match.rename(columns = {0 : "Features"}, inplace = True)
 log_table_match["Absolute Coefficients"] = log_table_match["Coefficients"].abs()
 log_table_match.sort_values(by = ["Absolute Coefficients"], ascending = False)
 
-log_table.head(5)
+log_table_match.head(5)
 
 # Train a classification tree with Match
 
