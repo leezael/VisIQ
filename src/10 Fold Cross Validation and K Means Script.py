@@ -62,6 +62,11 @@ start_data_201 = pd.read_excel("C:/Users/andre/Downloads/DAEN_690.xlsx", sheet_n
 
 start_data_main = pd.read_excel("C:/Users/andre/Downloads/DAEN_690_INFERENCE_CAD.xlsx", sheet_name = None)
 
+# If these files are not available, please download them from the following URLs and replace the reference
+# If using the downloads folder, then the only requirement is to change the user name after downloading the files
+
+url1 = "https://github.com/leezael/VisIQ/blob/main/src/DAEN_690.xlsx"
+
 start_data_concat = pd.concat(start_data_main, ignore_index = True)
 
 # Drop the first three columns
